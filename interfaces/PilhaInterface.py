@@ -10,13 +10,13 @@ class PilhaInterface:
         self.options() 
 
     def options(self):
+        print(f"Pilha {self.pilha.name}: {self.pilha.get_pilha()}")
         print("Você pode:")
         print("1. Adicionar elemento")
         print("2. Remover e chamar o próximo da pilha")
-        print("3. Ver a pilha")
-        print("4. Verificar na pilha")
-        print("5. Ver Histórico")
-        print("6. Limpar Pilha e voltar ao inicio")
+        print("3. Verificar na pilha")
+        print("4. Ver Histórico")
+        print("5. Limpar Pilha e voltar ao inicio")
         response = input("Escolha uma opção: ")
 
         match response:
@@ -40,7 +40,6 @@ class PilhaInterface:
                 self.clean.clean(2)
                 self.options()
 
-            case "3":
                 try:
                     value = self.pilha.get_pilha()  
                     print(value)
@@ -50,7 +49,7 @@ class PilhaInterface:
                 self.clean.clean(2)
                 self.options()
 
-            case "4":
+            case "3":
                 try:
                     index = int(input("Qual índice deseja verificar? ")) 
                     value = self.pilha.search(index)
@@ -61,7 +60,7 @@ class PilhaInterface:
                 self.clean.clean(2)
                 self.options()
 
-            case "5":
+            case "4":
                 try:
                     value = self.pilha.get_storage()
                     print(value)
@@ -71,8 +70,8 @@ class PilhaInterface:
                 self.clean.clean(2)
                 self.options()
 
-            case "6":
-                print(f"A Pilha: {self.pilha.get_pilha()} será deletada")
+            case "5":
+                print(f"A Pilha {self.fila.name}: {self.pilha.get_pilha()} será deletada")
                 self.clean.clean(2) 
                 print("Retornando ao início...")
                 self.clean.clean(2)

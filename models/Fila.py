@@ -2,6 +2,7 @@ from models import Pilha
 
 class Fila:
     def __init__(self):
+        self.name = input("qual será o nome da Fila?")
         self.lista = []
         self.storage = Pilha.Pilha() 
 
