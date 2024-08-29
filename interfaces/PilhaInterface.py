@@ -10,7 +10,7 @@ class PilhaInterface:
         self.options() 
 
     def options(self):
-        print(f"Pilha {self.pilha.name}: {self.pilha.get_pilha()}")
+        print(f"Pilha : {self.pilha.get_pilha()}")
         print("Você pode:")
         print("1. Adicionar elemento")
         print("2. Remover e chamar o próximo da pilha")
@@ -71,7 +71,7 @@ class PilhaInterface:
                 self.options()
 
             case "5":
-                print(f"A Pilha {self.fila.name}: {self.pilha.get_pilha()} será deletada")
+                print(f"A Pilha : {self.pilha.get_pilha()} será deletada")
                 self.clean.clean(2) 
                 print("Retornando ao início...")
                 self.clean.clean(2)
