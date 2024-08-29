@@ -1,5 +1,5 @@
-import Fila
-import Utilities
+from models import Fila
+from models import Utilities
 
 class FilaInterface:
     def __init__(self):
@@ -15,6 +15,8 @@ class FilaInterface:
         print("2. Remover e chamar o próximo da fila")
         print("3. Ver a fila")
         print("4. Verificar na fila")
+        print("5. Ver Histórico")
+        print("6. Limpar Fila e voltar ao inicio")
         response = input("Escolha uma opção: ")
 
         match response:
@@ -58,6 +60,23 @@ class FilaInterface:
 
                 self.clean.clean(2)
                 self.options()
+
+            case "5":
+                try:
+                    value = self.fila.get_storage()
+                    print(value)
+                except Exception as e:
+                    print("Algo deu errado:", e)
+
+                self.clean.clean(2)
+                self.options()
+            
+            case "6":
+                print(f"A Fila: {self.fila.get_fila()} será deletada")
+                self.clean.clean(2) 
+                print("Retornando ao início...")
+                self.clean.clean(2)
+                return 
 
             case _:
                 print("Opção inválida")

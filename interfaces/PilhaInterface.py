@@ -1,5 +1,5 @@
-import Pilha
-import Utilities
+from models import Pilha
+from models import Utilities
 
 class PilhaInterface:
     def __init__(self):
@@ -15,6 +15,8 @@ class PilhaInterface:
         print("2. Remover e chamar o próximo da pilha")
         print("3. Ver a pilha")
         print("4. Verificar na pilha")
+        print("5. Ver Histórico")
+        print("6. Limpar Pilha e voltar ao inicio")
         response = input("Escolha uma opção: ")
 
         match response:
@@ -58,6 +60,23 @@ class PilhaInterface:
 
                 self.clean.clean(2)
                 self.options()
+
+            case "5":
+                try:
+                    value = self.pilha.get_storage()
+                    print(value)
+                except Exception as e:
+                    print("Algo deu errado:", e)
+
+                self.clean.clean(2)
+                self.options()
+
+            case "6":
+                print(f"A Pilha: {self.pilha.get_pilha()} será deletada")
+                self.clean.clean(2) 
+                print("Retornando ao início...")
+                self.clean.clean(2)
+                return 
 
             case _:
                 print("Opção inválida")
