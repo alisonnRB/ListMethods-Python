@@ -1,4 +1,5 @@
 from models import Utilities
+import time
 
 class Main:
     def __init__(self) -> None:
@@ -13,7 +14,11 @@ class Main:
     def inputValue(self):
         print("Qual nome deseja procurar nas listas?")
         value = input("")
+        inicio = time.perf_counter()
         index = self.search(value)
+        fim = time.perf_counter()
+
+        print(f"tempo de execucao é {fim - inicio}")
 
         if(isinstance(index, int)):
             print(f"A palavra {value} está na posição {index + 1}")

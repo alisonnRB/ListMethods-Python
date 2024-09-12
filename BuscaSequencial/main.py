@@ -1,4 +1,5 @@
 from models import utilities
+import time
 
 
 class Main:
@@ -20,14 +21,19 @@ class Main:
         self.search(value)
 
     def search(self, value):
-
+        inicio = time.perf_counter()
         control1 = False
         control2 = False
+
+        
  
         for i in range(len(self.ordenadas)):
             if(self.ordenadas[i] == value):
                 print(f"O(A) {value} está na posição {i + 1} da lista ordenada")
                 control1 = True
+
+        fim = time.perf_counter()
+        tempo = fim - inicio
 
         for i in range(len(self.desordenadas)):
             if(self.desordenadas[i] == value):
@@ -43,8 +49,10 @@ class Main:
             if(control2 == False):
                 print("Não Existe na lista desordenada")
 
+        print(f"o tempo de execução é de {tempo}")
 
-        self.clean.clean(2)  
+
+        self.clean.clean(5)  
         self.inputValue()
         
 
